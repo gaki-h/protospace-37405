@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   # root  'users#index'
   resources :users, only: [:new, :edit, :update, :show]
   resources :prototypes do
-    resources :comments, only: :create
+    resources :comments, only: [:create]
   end
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
 end
