@@ -9,8 +9,8 @@ class PrototypesController < ApplicationController
   before_action :contributor_confimation, only: [:edit, :update, :destroy]
 
   def index
-    # @prototypes = Prototype.all
-    @prototype = Prototype.includes(:user)
+    @prototypes = Prototype.all
+    # @prototype = Prototype.includes(:user)
   end
 
   def new
